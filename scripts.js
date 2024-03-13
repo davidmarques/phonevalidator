@@ -1,9 +1,13 @@
+const apiUrl =
+  "https://davidmarques.github.io/phonevalidator/paises-codes.json";
+const arquivoestilo = "https://davidmarques.github.io/phonevalidator/style.css";
+var options = null;
+
 var countrylistModalSt = false;
 var languageCode = navigator.language || navigator.userLanguage;
 var languageCodeParts = languageCode.split("-");
 
 var countries = [];
-const apiUrl = "paises-codes.json";
 var options = null;
 
 /* ------------------------------------------------- FUNCOES BOOTRSTRAP ------------------------------------------------- */
@@ -135,7 +139,7 @@ function carregarScripts(arquivos, comandoAExecutar) {
 }
 
 var listaDeArquivos = [
-  "style.css",
+  arquivoestilo,
   "https://code.iconify.design/3/3.1.0/iconify.min.js",
   "https://cdn.jsdelivr.net/npm/libphonenumber-js/bundle/libphonenumber-js.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
