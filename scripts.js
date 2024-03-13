@@ -98,7 +98,24 @@ function criaFoneField(target) {
 }
 
 // Chamar a função para criar a estrutura do telefone
-criaFoneField(phoneFtarget);
+
+var inputs = document.querySelectorAll("input[type='tel'");
+
+for (i = 0; i < inputs.length; ++i) {
+  var paiDoInput = inputs[i].parentElement;
+  var elementosDoPai = paiDoInput.childNodes;
+  elementosDoPai.forEach(function (elemento) {
+    elemento.style.display = "none";
+  });
+
+  const tempnode = document.createElement("div");
+  //const temptext = document.createTextNode("Meu texto");
+  tempnode.appendChild(temptext);
+  criaFoneField(tempnode);
+  paiDoInput.appendChild(tempnode);
+  console.log(inputs[i]);
+}
+
 // Exemplo de uso
 criaModalFone();
 
