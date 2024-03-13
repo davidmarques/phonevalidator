@@ -110,7 +110,7 @@ for (i = 0; i < inputs.length; ++i) {
 
   const tempnode = document.createElement("div");
   //const temptext = document.createTextNode("Meu texto");
-  tempnode.appendChild(temptext);
+  //tempnode.appendChild(temptext);
   criaFoneField(tempnode);
   paiDoInput.appendChild(tempnode);
   console.log(inputs[i]);
