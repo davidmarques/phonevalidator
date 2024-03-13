@@ -1,0 +1,430 @@
+:root {
+  --primary: #111;
+  --secondary: #fd0;
+  --lightwhite: #ffffff88;
+  --solidwhite: #ffffff;
+}
+
+/*
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: var(--secondary);
+}
+*/
+
+#countrySelect {
+  position: relative;
+  /*width: 26rem;*/
+  margin: 2rem auto;
+  box-sizing: border-box;
+}
+
+#countrySelect input {
+  width: 100%;
+  padding: 1rem 0.6rem;
+  font-size: 1.1rem;
+  border: 0.1rem solid transparent;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input[type="tel"] {
+  border-radius: 0 0.5rem 0.5rem 0;
+  box-sizing: border-box;
+}
+
+#countrySelect input:focus {
+  border: 0.1rem solid var(--primary);
+  box-sizing: border-box;
+}
+
+.selected-option {
+  background-color: #eee;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.selected-option div {
+  position: relative;
+  width: 6rem;
+  padding: 0 2.8rem 0 0.5rem;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.selected-option div::after {
+  position: absolute;
+  content: "";
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 0.8rem;
+  height: 0.8rem;
+  border-right: 0.12rem solid var(--primary);
+  border-bottom: 0.12rem solid var(--primary);
+  transition: 0.2s;
+  box-sizing: border-box;
+}
+
+.selected-option div.active::after {
+  transform: translateY(-50%) rotate(225deg);
+  box-sizing: border-box;
+}
+
+#countrySelect .options {
+  position: absolute;
+  top: 4rem;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  display: none;
+  box-sizing: border-box;
+}
+
+#countrySelect .options.active {
+  display: block;
+  box-sizing: border-box;
+}
+/*
+#countrySelect .options::before {
+    position: absolute;
+    content: "";
+    left: 1rem;
+    top: -1rem;
+    width: 0;
+    height: 0;
+    border: .6rem solid transparent;
+    border-bottom-color: var(--primary);
+}
+*/
+#countrySelect .options::before {
+  position: absolute;
+  content: "";
+  left: 1rem;
+  top: -2rem;
+  width: 0;
+  height: 0;
+  border: 1rem solid transparent;
+  border-bottom-color: var(--primary);
+  box-sizing: border-box;
+}
+
+input.search-box {
+  background-color: var(--primary);
+  color: #fff;
+  border-radius: 0.5rem 0.5rem 0 0;
+  padding: 1.4rem 1rem;
+  box-sizing: border-box;
+}
+
+#countrySelect {
+  list-style: none;
+  /*  max-height: 23rem; */
+  overflow: overlay;
+  box-sizing: border-box;
+}
+/*
+#countrySelect::-webkit-scrollbar {
+  width: 0.6rem;
+  box-sizing: border-box;
+}
+
+#countrySelect::-webkit-scrollbar-thumb {
+  width: 0.4rem;
+  height: 3rem;
+  background-color: #ccc;
+  border-radius: 0.4rem;
+  box-sizing: border-box;
+}
+*/
+#countrySelect li {
+  padding: 1rem;
+  /*  display: flex;*/
+  justify-content: space-between;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+#countrySelect li.hide {
+  display: none;
+  box-sizing: border-box;
+}
+
+#countrySelect li:not(:last-child) {
+  border-bottom: 0.1rem solid #eee;
+  box-sizing: border-box;
+}
+
+#countrySelect li:hover {
+  background-color: #ffffff55;
+  box-sizing: border-box;
+}
+
+#countrySelect li .country-name {
+  margin-left: 0.4rem;
+  box-sizing: border-box;
+}
+.hided {
+  display: none;
+  box-sizing: border-box;
+}
+
+.asingleDiv {
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+#phvContainer {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.phvCbot,
+.phvCddi {
+  flex: 0 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+  /* Tamanho determinado pelo conteúdo */
+}
+
+.phvCpnum {
+  flex: 1;
+  box-sizing: border-box;
+  /* Ocupa todo o tamanho restante */
+}
+
+.phvCddi,
+.phvCpnum {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.phvCddi {
+  background-color: #00000021;
+  font-weight: bold;
+  color: #333333;
+  box-sizing: border-box;
+}
+
+.phvCpnum input {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 0px 5px 5px 0;
+  font-weight: bolder;
+  color: #343434;
+  box-sizing: border-box;
+}
+
+.phvCbot {
+  background-color: #00000088;
+  cursor: pointer;
+  border-radius: 5px 0 0 5px;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.phvCbot span {
+  display: block;
+  box-sizing: border-box;
+}
+
+.phvCbot strong {
+  display: block;
+  color: var(--solidwhite);
+  box-sizing: border-box;
+}
+
+.phvCbot div {
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.phvCbot::after {
+  display: inline-block;
+  content: "";
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 0.8rem;
+  height: 0.8rem;
+  border-right: 0.15rem solid var(--solidwhite);
+  border-bottom: 0.15rem solid var(--solidwhite);
+  transition: 0.2s;
+  margin-left: 5px;
+  box-sizing: border-box;
+}
+
+.phvCbot.active::after {
+  transform: translateY(-50%) rotate(225deg);
+  box-sizing: border-box;
+}
+
+#clboxCont {
+  position: absolute;
+  display: flex;
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff88;
+  z-index: 100;
+  /*align-content: center;*/
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.clboxArea {
+  position: absolute;
+  width: 100%;
+  background-color: #dedada;
+  max-width: 500px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.clboxHead {
+  width: 100%;
+  position: absolute;
+  height: 8rem;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.clboxList {
+  position: absolute;
+  top: 8rem;
+  width: 100%;
+  height: calc(100% - 8rem);
+  padding: 1rem 0rem 1rem 0rem;
+  box-sizing: border-box;
+}
+
+.countryListCont {
+  overflow: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.countryListCont ol li.hide {
+  display: none;
+  box-sizing: border-box;
+}
+
+.Myoption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.country-info {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.iconify {
+  margin-right: 10px;
+  border: solid 1px #ffffff;
+  box-sizing: content-box;
+}
+
+#countrySelect {
+  border-bottom: solid 1px var(--lightwhite);
+  margin-bottom: 2rem;
+  box-sizing: border-box;
+  list-style: none;
+  padding-left: 0;
+}
+
+#countrySelect li {
+  padding-top: 0.5rem;
+  padding-bottom: 0.1rem;
+  border-top: solid 1px var(--lightwhite);
+  box-sizing: border-box;
+}
+
+#phonemodal {
+  position: absolute;
+  display: none;
+  z-index: 99;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.clboxHeadM {
+  width: 100%;
+  padding: 0rem 1rem 0.5rem 1rem;
+  font-size: 1.2rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.clboxHeadF {
+  width: 100%;
+  padding: 0rem 1rem 0.5rem 1rem;
+  box-sizing: border-box;
+}
+
+.clboxHeadF input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.3rem;
+  box-sizing: border-box;
+}
+
+.clboxClose {
+  font-weight: bolder;
+  display: flex;
+  position: absolute;
+  background-color: #ff000088;
+  padding: 15px;
+  right: 0;
+  cursor: pointer;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  box-sizing: border-box;
+}
+
+.clboxBg {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
