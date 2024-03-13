@@ -64,6 +64,7 @@ function carregarJS(url) {
 }
 function criaFoneField(target) {
   var finaltarget = target.parentNode;
+
   target.style.display = "none";
 
   var divAsingle = document.createElement("div");
@@ -108,11 +109,11 @@ for (i = 0; i < inputs.length; ++i) {
     elemento.style.display = "none";
   });
 
-  const tempnode = document.createElement("div");
+  //const tempnode = document.createElement("div");
   //const temptext = document.createTextNode("Meu texto");
   //tempnode.appendChild(temptext);
-  criaFoneField(tempnode);
-  paiDoInput.appendChild(tempnode);
+  criaFoneField(inputs[i]);
+  //paiDoInput.appendChild(tempnode);
   console.log(inputs[i]);
 }
 
