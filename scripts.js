@@ -236,6 +236,7 @@ async function getSupportedCountries() {
   try {
     const response = await fetch(apiUrl);
     countries = await response.json();
+    console.log(countries);
     generateList();
   } catch (error) {
     console.error("Error fetching supported countries:", error);
