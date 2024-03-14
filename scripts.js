@@ -275,8 +275,8 @@ function generateList() {
     listCountryes.querySelector("ol").insertAdjacentHTML("beforeend", option);
     console.log(listCountryes);
     //select_box.querySelector("ol").insertAdjacentHTML("beforeend", option);
+    console.log("Options vai vir");
     options = document.querySelectorAll(".option");
-    console.log("Options abaixo");
     console.log(options);
   }
   options.forEach((option) => option.addEventListener("click", selectOption));
