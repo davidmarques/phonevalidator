@@ -251,6 +251,7 @@ async function getSupportedCountries() {
 }
 
 function generateList() {
+	var counter = 0;
   for (country of countries) {
     if (languageCodeParts[1] == country.code) {
       console.log("Este é o país!!!!!!!!!!!!");
@@ -275,13 +276,16 @@ function generateList() {
     console.log(listCountryes);
 
     listCountryes.querySelector("ol").insertAdjacentHTML("beforeend", option);
-    console.log("vai vir listcountry");
-    console.log(listCountryes);
-    //select_box.querySelector("ol").insertAdjacentHTML("beforeend", option);
-    console.log("Options vai vir");
+    //console.log("vai vir listcountry");
+    //console.log(listCountryes);
+    //##nao deve existir##select_box.querySelector("ol").insertAdjacentHTML("beforeend", option);
+    //console.log("Options vai vir");
     options = document.querySelectorAll(".option");
-    console.log(options);
+    //console.log(options);
+		counter++;
+		console.log("Estou em: "+counter);
   }
+	console.log("Terminei o Loop em: "+counter);
   options.forEach((option) => option.addEventListener("click", selectOption));
   //search_box.addEventListener("input", searchCountry);
 }
