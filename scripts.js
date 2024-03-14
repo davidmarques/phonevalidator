@@ -136,7 +136,6 @@ for (i = 0; i < inputs.length; ++i) {
   var elementosDoPai = paiDoInput.childNodes;
 
   elementosDoPai.forEach(function (elemento) {
-    elemento.style.display = "none";
     elemento.style.opacity = 0;
     elemento.style.height = 0;
   });
