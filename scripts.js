@@ -64,7 +64,7 @@ function carregarJS(url) {
 }
 function criaFoneField(target) {
   var finaltarget = target.parentNode;
-  target.style.display = "none";
+  //target.style.display = "none";
 
   var divAsingle = document.createElement("div");
   divAsingle.classList.add("countryPhoneArea");
