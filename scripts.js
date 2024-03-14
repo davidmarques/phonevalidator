@@ -137,6 +137,8 @@ for (i = 0; i < inputs.length; ++i) {
 
   elementosDoPai.forEach(function (elemento) {
     elemento.style.display = "none";
+    elemento.style.opacity = 0;
+    elemento.style.height = 0;
   });
 
   //const tempnode = document.createElement("div");
