@@ -173,16 +173,16 @@ var comando = function () {
     });
 
   //getSupportedCountries();
-	setTimeout(getSupportedCountries, 1000);
+  closeElements = document.querySelectorAll(".closeAct");
+  phvCountryButton = document.querySelector(".phvCbot");
+  listCountryes = document.querySelector("#countryList");
+  setTimeout(getSupportedCountries, 4000);
 
   setTimeout(delayedInit, 5000);
 };
 
 function delayedInit() {
   console.log("Inicio tardio");
-  closeElements = document.querySelectorAll(".closeAct");
-  phvCountryButton = document.querySelector(".phvCbot");
-  listCountryes = document.querySelector("#countryList");
 
   console.log(closeElements);
   console.log(phvCountryButton);
