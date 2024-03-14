@@ -272,6 +272,7 @@ function generateList() {
             </div>
         </li> `;
     console.log("Criei o Option");
+    console.log(listCountryes);
 
     listCountryes.querySelector("ol").insertAdjacentHTML("beforeend", option);
     console.log("vai vir listcountry");
