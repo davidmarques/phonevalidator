@@ -22,8 +22,9 @@ body {
 #countrySelect {
   position: relative;
   /*width: 26rem;*/
-  margin: calc(2rem * var(--factor)) auto;
+  /*margin: calc(2rem * var(--factor)) auto;*/
   box-sizing: border-box;
+  font-size:1.4rem;
 }
 
 #countrySelect input {
