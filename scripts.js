@@ -114,6 +114,14 @@ function detectStyle(){
 }
 */
 
+function updateOriginalFields(newvalue){
+  inputs.forEach(function (elemento) {
+    console.log("valor original: "+newvalue+"valor antes "+elemento.value);
+    elemento.value=newvalue;
+    console.log("valor original: "+newvalue+"valor depois "+elemento.value);
+  });
+}
+
 
 for (i = 0; i < inputs.length; ++i) {
   var paiDoInput = inputs[i].parentElement;
@@ -386,16 +394,20 @@ function newformatPhoneNumber(element) {
   var formattedPhoneNumber = phoneNumberObj
     ? phoneNumberObj.formatInternational()
     : phoneNumber;
+  updateOriginalFields("");
   if (phoneNumber.length > 2) {
     phoneparts = formattedPhoneNumber.split(" ");
     if (phoneparts.length > 1) {
       if (phoneparts.length > 2) {
         phonefield.value = phoneparts.slice(1).join(" ");
+        updateOriginalFields(phoneparts.slice(1).join(" "));
       } else {
-        phonefield.value = phoneparts.slice(1).join(" ");
+        updateOriginalFields("");
+        phonefield.value = phoneparts.slice(1).join(" ");  
       }
     } else {
       console.log("Nem posso validar ainda");
+      updateOriginalFields("");
       console.log(phoneparts);
     }
     console.log(phoneNumberObj.isPossible());
