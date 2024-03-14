@@ -18,7 +18,10 @@ body {
   background-color: var(--secondary);
 }
 */
-
+.countryPhoneArea{
+  position:absolute;
+  top:0;
+}
 #countrySelect {
   position: relative;
   /*width: 26rem;*/
@@ -437,5 +440,6 @@ input.search-box {
 }
 /* Estilos especificos do greatpages*/
 .gpc_campos-error .phvContainer {
+  /* background-color: red; */
   border: solid 1px #ff0000 !important;
 }
