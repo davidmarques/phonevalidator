@@ -176,9 +176,9 @@ var comando = function () {
   closeElements = document.querySelectorAll(".closeAct");
   phvCountryButton = document.querySelector(".phvCbot");
   listCountryes = document.querySelector("#countryList");
-  setTimeout(getSupportedCountries, 4000);
+  setTimeout(getSupportedCountries, 1000);
 
-  setTimeout(delayedInit, 5000);
+  setTimeout(delayedInit, 2000);
 };
 
 function delayedInit() {
