@@ -3,7 +3,7 @@
   --secondary: #fd0;
   --lightwhite: #ffffff88;
   --solidwhite: #ffffff;
-	--factor: 2;
+  --factor: 2;
 }
 
 /*
@@ -317,7 +317,7 @@ input.search-box {
   position: absolute;
   top: calc(8rem * var(--factor));
   width: 100%;
-  height: calc(100% - calc(8rem * var(--factor))) ;
+  height: calc(100% - calc(8rem * var(--factor)));
   padding: 1rem 0rem 1rem 0rem;
   box-sizing: border-box;
 }
