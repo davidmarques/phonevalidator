@@ -300,14 +300,18 @@ function generateList() {
 }
 
 function selectedOption(code, ddi) {
-  console.log("O phvcontainer");
-  console.log(phvContainer);
   var iconEl = phvContainer.querySelector(".phvCicon");
+	console.log("criei o icone");
   var codeEl = phvContainer.querySelector("strong");
+	console.log("criei o code");
   var ddiEl = phvContainer.querySelector(".phvCddi");
+	console.log("criei o ddi");
   iconEl.dataset.icon = "flag:" + code.toLowerCase() + "-4x3";
+	console.log("criei a bandeira");
   codeEl.innerHTML = code;
+	console.log("adicionei code no html");
   ddiEl.innerHTML = ddi;
+	console.log("adicionei o DDI");
 }
 
 function selectOption() {
