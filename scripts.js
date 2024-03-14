@@ -104,7 +104,7 @@ var inputs = document.querySelectorAll("input[type='tel'");
 setInterval(detectStyle,1000);
 function detectStyle(){
   inputs.forEach(function (elemento) {
-    console.log(elemento.value);
+    console.log(elemento.id);
   });
 }
 
