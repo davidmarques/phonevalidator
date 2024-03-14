@@ -223,9 +223,7 @@ carregarScripts(listaDeArquivos, comando);
 function CountryModalShow() {
   //  phvCountryButton.classList.toggle("active");
   phvCountryButton.forEach(function (button) {
-    button.addEventListener("click", function () {
-      button.classList.toggle("active");
-    });
+    button.classList.toggle("active");
   });
   $(phonemodal).show(500);
   coutrysearch.focus();
@@ -235,9 +233,7 @@ function CountryModalShow() {
 function CountryModalHide() {
   //  phvCountryButton.classList.toggle("active");
   phvCountryButton.forEach(function (button) {
-    button.addEventListener("click", function () {
-      button.classList.toggle("active");
-    });
+    button.classList.toggle("active");
   });
   $(phonemodal).hide(500, function () {
     coutrysearch.value = "";
