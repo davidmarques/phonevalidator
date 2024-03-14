@@ -101,9 +101,15 @@ function criaFoneField(target) {
 
 var inputs = document.querySelectorAll("input[type='tel'");
 
+setInterval(detectStyle,1000);
+function detectStyle(){
+  console.log(inputs);
+}
+
 for (i = 0; i < inputs.length; ++i) {
   var paiDoInput = inputs[i].parentElement;
   var elementosDoPai = paiDoInput.childNodes;
+
   elementosDoPai.forEach(function (elemento) {
     elemento.style.display = "none";
   });
