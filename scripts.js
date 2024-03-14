@@ -300,6 +300,8 @@ function generateList() {
 }
 
 function selectedOption(code, ddi) {
+  console.log("O phvcontainer");
+  console.log(phvContainer);
   var iconEl = phvContainer.querySelector(".phvCicon");
   var codeEl = phvContainer.querySelector("strong");
   var ddiEl = phvContainer.querySelector(".phvCddi");
