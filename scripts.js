@@ -166,13 +166,6 @@ var listaDeArquivos = [
 var comando = function () {
   //carregarJS("scripts.js");
 
-  closeElements = document.querySelectorAll(".closeAct");
-  phvCountryButton = document.querySelector(".phvCbot");
-  listCountryes = document.querySelector("#countryList");
-  console.log(closeElements);
-  console.log(phvCountryButton);
-  console.log(listCountryes);
-
   document
     .getElementById("coutrysearch")
     .addEventListener("input", function () {
@@ -180,6 +173,19 @@ var comando = function () {
     });
 
   getSupportedCountries();
+
+  setTimeout(delayedInit, 5000);
+};
+
+function delayedInit() {
+	console.log("Inicio tardio");
+  closeElements = document.querySelectorAll(".closeAct");
+  phvCountryButton = document.querySelector(".phvCbot");
+  listCountryes = document.querySelector("#countryList");
+
+  console.log(closeElements);
+  console.log(phvCountryButton);
+  console.log(listCountryes);
 
   phvCountryButton.addEventListener("click", () => {
     CountryModalShow();
@@ -198,7 +204,7 @@ var comando = function () {
   });
 
   $("#thePhoneIsHere").on("input", formatPhoneNumber);
-};
+}
 
 carregarScripts(listaDeArquivos, comando);
 /* ------------------------------------------------- FUNCOES BOOTRSTRAP ------------------------------------------------- */
