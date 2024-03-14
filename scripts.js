@@ -428,6 +428,7 @@ function newformatPhoneNumber(element) {
     );
     console.log(phoneNumberObj);
   }
+  element.focus();
 }
 
 
