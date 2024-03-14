@@ -326,6 +326,11 @@ function generateList() {
 }
 
 function selectedOption(code, ddi) {
+
+  var phvContainer = document.querySelectorAll(
+    ".phvContainer"
+  );
+
   for (container of phvContainer) {
     console.log(container);
     var iconEl = container.querySelector(".phvCicon");
