@@ -198,7 +198,7 @@ input.search-box {
 .phvCbot,
 .phvCddi {
   flex: 0 0 auto;
-  padding: 10px;
+  padding: 5px;
   box-sizing: border-box;
   /* Tamanho determinado pelo conteúdo */
 }
@@ -221,13 +221,14 @@ input.search-box {
   font-weight: bold;
   color: #333333;
   box-sizing: border-box;
+  font-size: 1.4rem;
 }
 
 .phvCpnum input {
   width: 100%;
   height: 100%;
   padding: 10px;
-  font-size: calc(1.5rem * var(--factor));
+  font-size: calc(1rem * var(--factor));
   border: none;
   border-radius: 0px 5px 5px 0;
   font-weight: bolder;
@@ -241,6 +242,7 @@ input.search-box {
   border-radius: 5px 0 0 5px;
   padding-right: 15px;
   box-sizing: border-box;
+  font-size: 1.4rem;
 }
 
 .phvCbot span {
@@ -337,10 +339,10 @@ input.search-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: calc(0.5rem * var(--factor));
-  padding-bottom: calc(0.5rem * var(--factor));
-  padding-left: calc(1rem * var(--factor));
-  padding-right: calc(1rem * var(--factor));
+  padding-top: calc(0.2rem * var(--factor));
+  padding-bottom: calc(0.2rem * var(--factor));
+  padding-left: calc(0.7rem * var(--factor));
+  padding-right: calc(0.7rem * var(--factor));
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -406,6 +408,7 @@ input.search-box {
   border: none;
   font-size: calc(1.3rem * var(--factor));
   box-sizing: border-box;
+  background-color: #ffffff;
 }
 
 .clboxClose {
