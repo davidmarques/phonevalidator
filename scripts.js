@@ -276,6 +276,8 @@ function generateList() {
     console.log(listCountryes);
     //select_box.querySelector("ol").insertAdjacentHTML("beforeend", option);
     options = document.querySelectorAll(".option");
+    console.log("Options abaixo");
+    console.log(options);
   }
   options.forEach((option) => option.addEventListener("click", selectOption));
   //search_box.addEventListener("input", searchCountry);
