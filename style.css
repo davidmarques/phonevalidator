@@ -182,7 +182,7 @@ input.search-box {
 }
 
 .asingleDiv {
-  padding: 15px;
+  /*padding: 15px;*/
   box-sizing: border-box;
 }
 
@@ -385,7 +385,8 @@ input.search-box {
 
 .clboxHeadM {
   width: 100%;
-  padding: 0rem calc(1rem * var(--factor)) calc(0.5rem * var(--factor)) calc(1rem * var(--factor));
+  padding: 0rem calc(1rem * var(--factor)) calc(0.5rem * var(--factor))
+    calc(1rem * var(--factor));
   font-size: calc(1.2rem * var(--factor));
   text-align: center;
   box-sizing: border-box;
@@ -393,7 +394,8 @@ input.search-box {
 
 .clboxHeadF {
   width: 100%;
-  padding: 0rem calc(1rem * var(--factor)) calc(0.5rem * var(--factor)) calc(1rem * var(--factor));
+  padding: 0rem calc(1rem * var(--factor)) calc(0.5rem * var(--factor))
+    calc(1rem * var(--factor));
   box-sizing: border-box;
 }
 
