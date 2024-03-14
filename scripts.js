@@ -221,24 +221,24 @@ carregarScripts(listaDeArquivos, comando);
 /* ------------------------------------------------- FUNCOES BOOTRSTRAP ------------------------------------------------- */
 
 function CountryModalShow() {
-//  phvCountryButton.classList.toggle("active");
-	phvCountryButtons.forEach(function(button) {
-		button.addEventListener('click', function() {
-			button.classList.toggle('active');
-		});
-	});
+  //  phvCountryButton.classList.toggle("active");
+  phvCountryButton.forEach(function (button) {
+    button.addEventListener("click", function () {
+      button.classList.toggle("active");
+    });
+  });
   $(phonemodal).show(500);
   coutrysearch.focus();
   countrylistModalSt = true;
 }
 
 function CountryModalHide() {
-//  phvCountryButton.classList.toggle("active");
-phvCountryButtons.forEach(function(button) {
-	button.addEventListener('click', function() {
-		button.classList.toggle('active');
-	});
-});
+  //  phvCountryButton.classList.toggle("active");
+  phvCountryButton.forEach(function (button) {
+    button.addEventListener("click", function () {
+      button.classList.toggle("active");
+    });
+  });
   $(phonemodal).hide(500, function () {
     coutrysearch.value = "";
     couytryesSearch();
