@@ -100,6 +100,9 @@ function criaFoneField(target) {
 // Chamar a função para criar a estrutura do telefone
 
 var inputs = document.querySelectorAll("input[type='tel'");
+
+/*
+//não necessario
 var testcounter = 0;
 setInterval(detectStyle,1000);
 function detectStyle(){
@@ -109,6 +112,8 @@ function detectStyle(){
     testcounter++;
   });
 }
+*/
+
 
 for (i = 0; i < inputs.length; ++i) {
   var paiDoInput = inputs[i].parentElement;
