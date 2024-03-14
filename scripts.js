@@ -120,9 +120,9 @@ for (i = 0; i < inputs.length; ++i) {
 // Exemplo de uso
 criaModalFone();
 
-var closeElements = document.querySelectorAll(".closeAct");
-var phvCountryButton = document.querySelector(".phvCbot");
-var listCountryes = document.querySelector("#countryList");
+var closeElements;
+var phvCountryButton;
+var listCountryes;
 
 function carregarScripts(arquivos, comandoAExecutar) {
   var scriptsCarregados = 0;
@@ -165,6 +165,13 @@ var listaDeArquivos = [
 
 var comando = function () {
   //carregarJS("scripts.js");
+
+  var closeElements = document.querySelectorAll(".closeAct");
+  var phvCountryButton = document.querySelector(".phvCbot");
+  var listCountryes = document.querySelector("#countryList");
+  console.log(closeElements);
+  console.log(phvCountryButton);
+  console.log(listCountryes);
 
   document
     .getElementById("coutrysearch")
@@ -236,7 +243,6 @@ async function getSupportedCountries() {
   try {
     const response = await fetch(apiUrl);
     countries = await response.json();
-    console.log(countries);
     generateList();
   } catch (error) {
     console.error("Error fetching supported countries:", error);
