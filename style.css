@@ -435,3 +435,7 @@ input.search-box {
   margin: 0;
   box-sizing: border-box;
 }
+/* Estilos especificos do greatpages*/
+.gpc_campos-error .phvContainer {
+  border: solid 1px #ff0000 !important;
+}
