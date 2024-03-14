@@ -172,13 +172,14 @@ var comando = function () {
       couytryesSearch();
     });
 
-  getSupportedCountries();
+  //getSupportedCountries();
+	setTimeout(getSupportedCountries, 1000);
 
   setTimeout(delayedInit, 5000);
 };
 
 function delayedInit() {
-	console.log("Inicio tardio");
+  console.log("Inicio tardio");
   closeElements = document.querySelectorAll(".closeAct");
   phvCountryButton = document.querySelector(".phvCbot");
   listCountryes = document.querySelector("#countryList");
