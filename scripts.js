@@ -174,7 +174,7 @@ var comando = function () {
 
   //getSupportedCountries();
   closeElements = document.querySelectorAll(".closeAct");
-  phvCountryButton = document.querySelector(".phvCbot");
+  phvCountryButton = document.querySelectorAll(".phvCbot");
   listCountryes = document.querySelector("#countryList");
   setTimeout(getSupportedCountries, 1000);
 
