@@ -124,6 +124,7 @@ function updateOriginalFields(newvalue){
       cancelable: true
     });
     // Dispara o evento input no campo oculto
+    elemento.focus();
     elemento.dispatchEvent(eventoInput);
     elemento.blur();
   });
