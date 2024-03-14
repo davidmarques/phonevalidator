@@ -187,7 +187,7 @@ input.search-box {
   box-sizing: border-box;
 }
 
-#phvContainer {
+.phvContainer {
   display: flex;
   flex-direction: row;
   flex: 1;
