@@ -1,9 +1,13 @@
+const apiUrl =
+  "https://davidmarques.github.io/phonevalidator/paises-codes.json";
+const arquivoestilo = "https://davidmarques.github.io/phonevalidator/style.css";
+var options = null;
+
 var countrylistModalSt = false;
 var languageCode = navigator.language || navigator.userLanguage;
 var languageCodeParts = languageCode.split("-");
 
 var countries = [];
-const apiUrl = "paises-codes.json";
 var options = null;
 
 /* ------------------------------------------------- FUNCOES BOOTRSTRAP ------------------------------------------------- */
@@ -94,13 +98,30 @@ function criaFoneField(target) {
 }
 
 // Chamar a função para criar a estrutura do telefone
-criaFoneField(phoneFtarget);
+
+var inputs = document.querySelectorAll("input[type='tel'");
+
+for (i = 0; i < inputs.length; ++i) {
+  var paiDoInput = inputs[i].parentElement;
+  var elementosDoPai = paiDoInput.childNodes;
+  elementosDoPai.forEach(function (elemento) {
+    elemento.style.display = "none";
+  });
+
+  //const tempnode = document.createElement("div");
+  //const temptext = document.createTextNode("Meu texto");
+  //tempnode.appendChild(temptext);
+  criaFoneField(inputs[i]);
+  //paiDoInput.appendChild(tempnode);
+  console.log(inputs[i]);
+}
+
 // Exemplo de uso
 criaModalFone();
 
-var closeElements = document.querySelectorAll(".closeAct");
-var phvCountryButton = document.querySelector(".phvCbot");
-var listCountryes = document.querySelector("#countryList");
+var closeElements;
+var phvCountryButton;
+var listCountryes;
 
 function carregarScripts(arquivos, comandoAExecutar) {
   var scriptsCarregados = 0;
@@ -135,7 +156,7 @@ function carregarScripts(arquivos, comandoAExecutar) {
 }
 
 var listaDeArquivos = [
-  "style.css",
+  arquivoestilo,
   "https://code.iconify.design/3/3.1.0/iconify.min.js",
   "https://cdn.jsdelivr.net/npm/libphonenumber-js/bundle/libphonenumber-js.min.js",
   "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
@@ -150,10 +171,34 @@ var comando = function () {
       couytryesSearch();
     });
 
-  getSupportedCountries();
+  //getSupportedCountries();
+  closeElements = document.querySelectorAll(".closeAct");
+  phvCountryButton = document.querySelectorAll(".phvCbot");
+  listCountryes = document.querySelector("#countryList");
+  setTimeout(getSupportedCountries, 1000);
 
+  setTimeout(delayedInit, 2000);
+};
+
+function delayedInit() {
+  console.log("Inicio tardio");
+
+  console.log(closeElements);
+  console.log(phvCountryButton);
+  console.log(listCountryes);
+
+  /*
   phvCountryButton.addEventListener("click", () => {
     CountryModalShow();
+  });
+	*/
+
+  phvCountryButton.forEach(function (elemento) {
+    elemento.addEventListener("click", function () {
+      // Coloque aqui o código que deseja executar quando um elemento com a classe "minhaclasse" for clicado
+      console.log('Um elemento com a classe "minhaclasse" foi clicado!');
+      CountryModalShow();
+    });
   });
 
   document.addEventListener("keydown", function (event) {
@@ -179,20 +224,27 @@ var comando = function () {
       newformatPhoneNumber(this);
     });
   });
+
 };
 
 carregarScripts(listaDeArquivos, comando);
 /* ------------------------------------------------- FUNCOES BOOTRSTRAP ------------------------------------------------- */
 
 function CountryModalShow() {
-  phvCountryButton.classList.toggle("active");
+  //  phvCountryButton.classList.toggle("active");
+  phvCountryButton.forEach(function (button) {
+    button.classList.toggle("active");
+  });
   $(phonemodal).show(500);
   coutrysearch.focus();
   countrylistModalSt = true;
 }
 
 function CountryModalHide() {
-  phvCountryButton.classList.toggle("active");
+  //  phvCountryButton.classList.toggle("active");
+  phvCountryButton.forEach(function (button) {
+    button.classList.toggle("active");
+  });
   $(phonemodal).hide(500, function () {
     coutrysearch.value = "";
     couytryesSearch();
@@ -232,6 +284,7 @@ async function getSupportedCountries() {
 }
 
 function generateList() {
+  var counter = 0;
   for (country of countries) {
     if (languageCodeParts[1] == country.code) {
       console.log("Este é o país!!!!!!!!!!!!");
@@ -252,22 +305,42 @@ function generateList() {
 
             </div>
         </li> `;
+    console.log("Criei o Option");
+    console.log(listCountryes);
 
     listCountryes.querySelector("ol").insertAdjacentHTML("beforeend", option);
-    //select_box.querySelector("ol").insertAdjacentHTML("beforeend", option);
+    //console.log("vai vir listcountry");
+    //console.log(listCountryes);
+    //##nao deve existir##select_box.querySelector("ol").insertAdjacentHTML("beforeend", option);
+    //console.log("Options vai vir");
     options = document.querySelectorAll(".option");
+    //console.log(options);
+    counter++;
+    console.log(
+      "Estou em: " + counter + " | " + country.code + " | " + country.name
+    );
   }
+  console.log("Terminei o Loop em: " + counter);
   options.forEach((option) => option.addEventListener("click", selectOption));
   //search_box.addEventListener("input", searchCountry);
 }
 
 function selectedOption(code, ddi) {
-  var iconEl = phvContainer.querySelector(".phvCicon");
-  var codeEl = phvContainer.querySelector("strong");
-  var ddiEl = phvContainer.querySelector(".phvCddi");
-  iconEl.dataset.icon = "flag:" + code.toLowerCase() + "-4x3";
-  codeEl.innerHTML = code;
-  ddiEl.innerHTML = ddi;
+  for (container of phvContainer) {
+    console.log(container);
+    var iconEl = container.querySelector(".phvCicon");
+    console.log("criei o icone");
+    var codeEl = container.querySelector("strong");
+    console.log("criei o code");
+    var ddiEl = container.querySelector(".phvCddi");
+    console.log("criei o ddi");
+    iconEl.dataset.icon = "flag:" + code.toLowerCase() + "-4x3";
+    console.log("criei a bandeira");
+    codeEl.innerHTML = code;
+    console.log("adicionei code no html");
+    ddiEl.innerHTML = ddi;
+    console.log("adicionei o DDI");
+  }
 }
 
 function selectOption() {
@@ -316,6 +389,7 @@ function newformatPhoneNumber(element) {
     console.log(phoneNumberObj);
   }
 }
+
 
 function formatPhoneNumber() {
   var phonefield = document.querySelector(".phvCpnum input");
