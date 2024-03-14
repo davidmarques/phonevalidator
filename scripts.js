@@ -166,9 +166,9 @@ var listaDeArquivos = [
 var comando = function () {
   //carregarJS("scripts.js");
 
-  var closeElements = document.querySelectorAll(".closeAct");
-  var phvCountryButton = document.querySelector(".phvCbot");
-  var listCountryes = document.querySelector("#countryList");
+  closeElements = document.querySelectorAll(".closeAct");
+  phvCountryButton = document.querySelector(".phvCbot");
+  listCountryes = document.querySelector("#countryList");
   console.log(closeElements);
   console.log(phvCountryButton);
   console.log(listCountryes);
