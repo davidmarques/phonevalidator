@@ -188,8 +188,18 @@ function delayedInit() {
   console.log(phvCountryButton);
   console.log(listCountryes);
 
+  /*
   phvCountryButton.addEventListener("click", () => {
     CountryModalShow();
+  });
+	*/
+
+  phvCountryButton.forEach(function (elemento) {
+    elemento.addEventListener("click", function () {
+      // Coloque aqui o código que deseja executar quando um elemento com a classe "minhaclasse" for clicado
+      console.log('Um elemento com a classe "minhaclasse" foi clicado!');
+      CountryModalShow();
+    });
   });
 
   document.addEventListener("keydown", function (event) {
@@ -211,14 +221,24 @@ carregarScripts(listaDeArquivos, comando);
 /* ------------------------------------------------- FUNCOES BOOTRSTRAP ------------------------------------------------- */
 
 function CountryModalShow() {
-  phvCountryButton.classList.toggle("active");
+//  phvCountryButton.classList.toggle("active");
+	phvCountryButtons.forEach(function(button) {
+		button.addEventListener('click', function() {
+			button.classList.toggle('active');
+		});
+	});
   $(phonemodal).show(500);
   coutrysearch.focus();
   countrylistModalSt = true;
 }
 
 function CountryModalHide() {
-  phvCountryButton.classList.toggle("active");
+//  phvCountryButton.classList.toggle("active");
+phvCountryButtons.forEach(function(button) {
+	button.addEventListener('click', function() {
+		button.classList.toggle('active');
+	});
+});
   $(phonemodal).hide(500, function () {
     coutrysearch.value = "";
     couytryesSearch();
