@@ -273,6 +273,7 @@ function generateList() {
         </li> `;
 
     listCountryes.querySelector("ol").insertAdjacentHTML("beforeend", option);
+    console.log(listCountryes);
     //select_box.querySelector("ol").insertAdjacentHTML("beforeend", option);
     options = document.querySelectorAll(".option");
   }
