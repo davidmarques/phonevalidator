@@ -22,21 +22,21 @@ body {
 #countrySelect {
   position: relative;
   /*width: 26rem;*/
-  margin: 2rem auto;
+  margin: calc(2rem * var(--factor)) auto;
   box-sizing: border-box;
 }
 
 #countrySelect input {
   width: 100%;
-  padding: 1rem 0.6rem;
-  font-size: 1.1rem;
+  padding: calc(1rem * var(--factor)) calc(0.6rem * var(--factor));
+  font-size: calc(1.1rem * var(--factor));
   border: 0.1rem solid transparent;
   outline: none;
   box-sizing: border-box;
 }
 
 input[type="tel"] {
-  border-radius: 0 0.5rem 0.5rem 0;
+  border-radius: 0 calc(0.5rem * var(--factor)) calc(0.5rem * var(--factor)) 0;
   box-sizing: border-box;
 }
 
@@ -47,7 +47,7 @@ input[type="tel"] {
 
 .selected-option {
   background-color: #eee;
-  border-radius: 0.5rem;
+  border-radius: calc(0.5rem * var(--factor));
   overflow: hidden;
   display: flex;
   justify-content: space-between;
@@ -57,8 +57,8 @@ input[type="tel"] {
 
 .selected-option div {
   position: relative;
-  width: 6rem;
-  padding: 0 2.8rem 0 0.5rem;
+  width: calc(6rem * var(--factor));
+  padding: 0 calc(2.8rem * var(--factor)) 0 calc(0.5rem * var(--factor));
   text-align: center;
   cursor: pointer;
   box-sizing: border-box;
@@ -67,11 +67,11 @@ input[type="tel"] {
 .selected-option div::after {
   position: absolute;
   content: "";
-  right: 0.8rem;
+  right: calc(0.8rem * var(--factor));
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
-  width: 0.8rem;
-  height: 0.8rem;
+  width: calc(0.8rem * var(--factor));
+  height: calc(0.8rem * var(--factor));
   border-right: 0.12rem solid var(--primary);
   border-bottom: 0.12rem solid var(--primary);
   transition: 0.2s;
@@ -85,10 +85,10 @@ input[type="tel"] {
 
 #countrySelect .options {
   position: absolute;
-  top: 4rem;
+  top: calc(4rem * var(--factor));
   width: 100%;
   background-color: #fff;
-  border-radius: 0.5rem;
+  border-radius: calc(0.5rem * var(--factor));
   display: none;
   box-sizing: border-box;
 }
@@ -112,8 +112,8 @@ input[type="tel"] {
 #countrySelect .options::before {
   position: absolute;
   content: "";
-  left: 1rem;
-  top: -2rem;
+  left: calc(1rem * var(--factor));
+  top: calc(-2rem * var(--factor));
   width: 0;
   height: 0;
   border: 1rem solid transparent;
@@ -124,8 +124,8 @@ input[type="tel"] {
 input.search-box {
   background-color: var(--primary);
   color: #fff;
-  border-radius: 0.5rem 0.5rem 0 0;
-  padding: 1.4rem 1rem;
+  border-radius: calc(0.5rem * var(--factor)) calc(0.5rem * var(--factor)) 0 0;
+  padding: calc(1.4rem * var(--factor)) calc(1rem * var(--factor));
   box-sizing: border-box;
 }
 
@@ -150,7 +150,7 @@ input.search-box {
 }
 */
 #countrySelect li {
-  padding: 1rem;
+  padding: calc(1rem * var(--factor));
   /*  display: flex;*/
   justify-content: space-between;
   cursor: pointer;
@@ -163,7 +163,7 @@ input.search-box {
 }
 
 #countrySelect li:not(:last-child) {
-  border-bottom: 0.1rem solid #eee;
+  border-bottom: calc(0.1rem * var(--factor)) solid #eee;
   box-sizing: border-box;
 }
 
@@ -173,7 +173,7 @@ input.search-box {
 }
 
 #countrySelect li .country-name {
-  margin-left: 0.4rem;
+  margin-left: calc(0.4rem * var(--factor));
   box-sizing: border-box;
 }
 .hided {
@@ -227,7 +227,7 @@ input.search-box {
   width: 100%;
   height: 100%;
   padding: 10px;
-  font-size: 1.5rem;
+  font-size: calc(1.5rem * var(--factor));
   border: none;
   border-radius: 0px 5px 5px 0;
   font-weight: bolder;
@@ -262,11 +262,11 @@ input.search-box {
 .phvCbot::after {
   display: inline-block;
   content: "";
-  right: 0.8rem;
+  right: calc(0.8rem * var(--factor));
   top: 50%;
   transform: translateY(-50%) rotate(45deg);
-  width: 0.8rem;
-  height: 0.8rem;
+  width: calc(0.8rem * var(--factor));
+  height: calc(0.8rem * var(--factor));
   border-right: 0.15rem solid var(--solidwhite);
   border-bottom: 0.15rem solid var(--solidwhite);
   transition: 0.2s;
@@ -337,10 +337,10 @@ input.search-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-top: calc(0.5rem * var(--factor));
+  padding-bottom: calc(0.5rem * var(--factor));
+  padding-left: calc(1rem * var(--factor));
+  padding-right: calc(1rem * var(--factor));
   cursor: pointer;
   box-sizing: border-box;
 }
@@ -359,15 +359,15 @@ input.search-box {
 
 #countrySelect {
   border-bottom: solid 1px var(--lightwhite);
-  margin-bottom: 2rem;
+  margin-bottom: calc(2rem * var(--factor));
   box-sizing: border-box;
   list-style: none;
   padding-left: 0;
 }
 
 #countrySelect li {
-  padding-top: 0.5rem;
-  padding-bottom: 0.1rem;
+  padding-top: calc(0.5rem * var(--factor));
+  padding-bottom: calc(0.1rem * var(--factor));
   border-top: solid 1px var(--lightwhite);
   box-sizing: border-box;
 }
@@ -385,15 +385,15 @@ input.search-box {
 
 .clboxHeadM {
   width: 100%;
-  padding: 0rem 1rem 0.5rem 1rem;
-  font-size: 1.2rem;
+  padding: 0rem calc(1rem * var(--factor)) calc(0.5rem * var(--factor)) calc(1rem * var(--factor));
+  font-size: calc(1.2rem * var(--factor));
   text-align: center;
   box-sizing: border-box;
 }
 
 .clboxHeadF {
   width: 100%;
-  padding: 0rem 1rem 0.5rem 1rem;
+  padding: 0rem calc(1rem * var(--factor)) calc(0.5rem * var(--factor)) calc(1rem * var(--factor));
   box-sizing: border-box;
 }
 
@@ -402,7 +402,7 @@ input.search-box {
   padding: 10px;
   border-radius: 5px;
   border: none;
-  font-size: 1.3rem;
+  font-size: calc(1.3rem * var(--factor));
   box-sizing: border-box;
 }
 
@@ -415,8 +415,8 @@ input.search-box {
   right: 0;
   cursor: pointer;
   z-index: 10;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: calc(2.5rem * var(--factor));
+  height: calc(2.5rem * var(--factor));
   align-items: center;
   justify-content: center;
   color: #ffffff;
