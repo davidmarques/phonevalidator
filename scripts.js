@@ -119,6 +119,12 @@ function updateOriginalFields(newvalue){
     console.log("valor original: "+newvalue+"valor antes "+elemento.value);
     elemento.value=newvalue;
     console.log("valor original: "+newvalue+"valor depois "+elemento.value);
+    var eventoInput = new Event('input', {
+      bubbles: true,
+      cancelable: true
+    });
+    // Dispara o evento input no campo oculto
+    elemento.dispatchEvent(eventoInput);
     elemento.blur();
   });
 }
