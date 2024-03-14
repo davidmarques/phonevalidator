@@ -99,8 +99,8 @@ function criaFoneField(target) {
 
 // Chamar a função para criar a estrutura do telefone
 
-var inputs = document.querySelectorAll("input[type='tel'");
-
+//var inputs = document.querySelectorAll("input[type='tel'");
+var inputs = document.querySelectorAll('input[name$="-telefone"]');
 /*
 //não necessario
 var testcounter = 0;
