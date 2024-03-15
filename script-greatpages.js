@@ -29,9 +29,6 @@ var closeElements;
 var phvCountryButton;
 var listCountryes;
 
-
-
-
 // Seleciona todos os elementos de input com nome terminado em "-telefone"
 var inputs = document.querySelectorAll('input[name$="-telefone"]');
 // Loop sobre todos os elementos de input selecionados
@@ -47,12 +44,14 @@ for (i = 0; i < inputs.length; ++i) {
   criaFoneField(inputs[i]);
 }
 
-
 // Cria o modal de seleção de país
 criaModalFone();
 
+// Carrega os scripts externos necessários
+carregarScripts(listaDeArquivos, comando);
+
 // Comando a ser executado após o carregamento dos scripts
-var comando = function () {
+var comando = function() {
   // Adiciona listeners de eventos após a inicialização dos scripts
   document
     .getElementById("coutrysearch")
@@ -65,10 +64,6 @@ var comando = function () {
   setTimeout(getSupportedCountries, 100);
   setTimeout(delayedInit, 200);
 };
-
-// Carrega os scripts externos necessários
-carregarScripts(listaDeArquivos, comando);
-
 
 // Função para criar o modal de seleção de país
 function criaModalFone() {
@@ -371,9 +366,7 @@ function newformatPhoneNumber(element) {
     ddiValue + " " + phoneNumber,
     selectedCountryCode
   );
-  console.log(phoneNumberObj);
-  console.log(phoneNumberObj.isPossible());
-  console.log(phoneNumberObj.isValid());
+
   var formattedPhoneNumber = phoneNumberObj
     ? phoneNumberObj.formatInternational()
     : phoneNumber;
