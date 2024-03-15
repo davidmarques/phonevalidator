@@ -13,7 +13,6 @@ Este é um validador de números de telefone implementado em JavaScript, que per
 
 Para utilizar este validador de números de telefone em seu projeto, siga estas etapas:
 
-```
 1. Inclua o arquivo `script-[plataforma].js` em seu projeto.
 2. Certifique-se de que o script está conseguindo incluir as seguintes bibliotecas no seu HTML:
    ```html
@@ -24,7 +23,7 @@ Para utilizar este validador de números de telefone em seu projeto, siga estas 
    ```
 3. Adicione os elementos HTML necessários para a interface do usuário, conforme especificado no arquivo `script.js`.
 4. Inicialize o script chamando a função `carregarScripts(listaDeArquivos, comando)`.
-```
+
 
 ## Contribuição
 
