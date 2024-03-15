@@ -233,13 +233,14 @@ function delayedInit() {
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && countrylistModalSt) {
       CountryModalHide();
+      console.log("Fechando o modal com ESC");
     }
-    
   });
 
   closeElements.forEach(function (element) {
     element.addEventListener("click", function () {
       CountryModalHide();
+      console.log("Fechando o modal pelo X");
     });
   });
 
@@ -275,6 +276,7 @@ function CountryModalHide() {
   phvCountryButton.forEach(function (button) {
     button.classList.toggle("active");
   });
+  updateOriginalFields("");
   $(phonemodal).hide(500, function () {
     coutrysearch.value = "";
     couytryesSearch();
@@ -379,8 +381,7 @@ function selectOption() {
   var country_ddi = this.querySelector(".country-ddi").innerText,
     country_code = this.querySelector(".country-code").innerText;
   selectedOption(country_code, country_ddi);
-  updateOriginalFields("");
-  console.log("Fechando o modal");
+  console.log("Fechando o modal em selectOption");
   CountryModalHide();
 }
 
