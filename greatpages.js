@@ -57,11 +57,6 @@ function criaModalFone() {
   document.body.appendChild(modalDiv);
 }
 
-function carregarJS(url) {
-  var script = document.createElement("script");
-  script.src = url;
-  document.head.appendChild(script);
-}
 function criaFoneField(target) {
   var finaltarget = target.parentNode;
   var divAsingle = document.createElement("div");
@@ -109,7 +104,6 @@ function updateOriginalFields(newvalue){
     elemento.blur();
   });
 }
-
 
 for (i = 0; i < inputs.length; ++i) {
   var paiDoInput = inputs[i].parentElement;
@@ -338,29 +332,4 @@ function newformatPhoneNumber(element) {
     }
   }
   element.focus();
-}
-
-
-function formatPhoneNumber() {
-  var phonefield = document.querySelector(".phvCpnum input");
-  var selectedCountryCode = document.querySelector(".phvCbot strong").innerHTML;
-  var phoneNumber = phonefield.value;
-  var ddiValue = document.querySelector(".phvCddi").innerHTML;
-  var phoneNumberObj = libphonenumber.parsePhoneNumberFromString(
-    ddiValue + " " + phoneNumber,
-    selectedCountryCode
-  );
-  var formattedPhoneNumber = phoneNumberObj
-    ? phoneNumberObj.formatInternational()
-    : phoneNumber;
-  if (phoneNumber.length > 2) {
-    phoneparts = formattedPhoneNumber.split(" ");
-    if (phoneparts.length > 1) {
-      if (phoneparts.length > 2) {
-        phonefield.value = phoneparts.slice(1).join(" ");
-      } else {
-        phonefield.value = phoneparts.slice(1).join(" ");
-      }
-    }
-  }
 }
