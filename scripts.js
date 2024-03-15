@@ -64,8 +64,6 @@ function carregarJS(url) {
 }
 function criaFoneField(target) {
   var finaltarget = target.parentNode;
-  //target.style.display = "none";
-
   var divAsingle = document.createElement("div");
   divAsingle.classList.add("countryPhoneArea");
   var divPhvContainer = document.createElement("div");
@@ -207,9 +205,8 @@ var comando = function () {
   closeElements = document.querySelectorAll(".closeAct");
   phvCountryButton = document.querySelectorAll(".phvCbot");
   listCountryes = document.querySelector("#countryList");
-  setTimeout(getSupportedCountries, 1000);
-
-  setTimeout(delayedInit, 2000);
+  setTimeout(getSupportedCountries, 100);
+  setTimeout(delayedInit, 200);
 };
 
 function delayedInit() {
@@ -237,6 +234,7 @@ function delayedInit() {
     if (event.key === "Escape" && countrylistModalSt) {
       CountryModalHide();
     }
+    
   });
 
   closeElements.forEach(function (element) {
@@ -326,17 +324,14 @@ function generateList() {
     const option = `
         <li class="option">
             <div class="Myoption">
-
-            <div>
-            <span class="iconify" data-icon="flag:${country.code.toLowerCase()}-4x3"></span>
-            <span class="country-name">${country.code} | ${country.name}</span>
-            <strong class="hided country-code">${country.code}</strong>
-        </div>
-        <strong class="country-ddi">+${country.ddi}</strong>
-
-
+              <div>
+                  <span class="iconify" data-icon="flag:${country.code.toLowerCase()}-4x3"></span>
+                  <span class="country-name">${country.code} | ${country.name}</span>
+                  <strong class="hided country-code">${country.code}</strong>
+              </div>
+              <strong class="country-ddi">+${country.ddi}</strong>
             </div>
-        </li> `;
+        </li>`;
     console.log("Criei o Option");
     console.log(listCountryes);
 
@@ -384,12 +379,12 @@ function selectOption() {
   var country_ddi = this.querySelector(".country-ddi").innerText,
     country_code = this.querySelector(".country-code").innerText;
   selectedOption(country_code, country_ddi);
+  updateOriginalFields("");
   CountryModalHide();
 }
 
 function newformatPhoneNumber(element) {
   var phonecontainer = element.closest(".phvContainer");
-
   var phonefield = phonecontainer.querySelector(".phvCpnum input");
   var selectedCountryCode =
     phonecontainer.querySelector(".phvCbot strong").innerHTML;
