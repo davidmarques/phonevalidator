@@ -390,6 +390,7 @@ function cleanInput(){
   var phonefield = document.querySelectorAll(".phvCpnum input");
   for (startInput of phonefield) {
     console.log(phonefield);
+    console.log(phonefield.value);
     phonefield.value="";
   }
 }
