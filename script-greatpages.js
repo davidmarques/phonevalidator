@@ -371,6 +371,7 @@ function newformatPhoneNumber(element) {
     ddiValue + " " + phoneNumber,
     selectedCountryCode
   );
+  console.log(phoneNumberObj);
   var formattedPhoneNumber = phoneNumberObj
     ? phoneNumberObj.formatInternational()
     : phoneNumber;
