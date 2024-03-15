@@ -388,6 +388,7 @@ function selectOption() {
 
 function cleanInput(){
   var phonefield = document.querySelector(".phvCpnum input");
+  console.log(phonefield);
   for (startInput of phonefield) {
     console.log(phonefield);
   }
