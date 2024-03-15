@@ -47,8 +47,6 @@ for (i = 0; i < inputs.length; ++i) {
 // Cria o modal de seleção de país
 criaModalFone();
 
-// Carrega os scripts externos necessários
-carregarScripts(listaDeArquivos, comando);
 
 // Comando a ser executado após o carregamento dos scripts
 var comando = function() {
@@ -64,6 +62,9 @@ var comando = function() {
   setTimeout(getSupportedCountries, 100);
   setTimeout(delayedInit, 200);
 };
+
+// Carrega os scripts externos necessários
+carregarScripts(listaDeArquivos, comando);
 
 // Função para criar o modal de seleção de país
 function criaModalFone() {
