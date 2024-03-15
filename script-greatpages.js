@@ -372,6 +372,8 @@ function newformatPhoneNumber(element) {
     selectedCountryCode
   );
   console.log(phoneNumberObj);
+  console.log(phoneNumberObj.isPossible());
+  console.log(phoneNumberObj.isValid());
   var formattedPhoneNumber = phoneNumberObj
     ? phoneNumberObj.formatInternational()
     : phoneNumber;
