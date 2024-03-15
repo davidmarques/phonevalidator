@@ -277,6 +277,7 @@ function CountryModalHide() {
     button.classList.toggle("active");
   });
   updateOriginalFields("");
+  cleanInput();
   $(phonemodal).hide(500, function () {
     coutrysearch.value = "";
     couytryesSearch();
@@ -383,6 +384,13 @@ function selectOption() {
   selectedOption(country_code, country_ddi);
   console.log("Fechando o modal em selectOption");
   CountryModalHide();
+}
+
+function cleanInput(){
+  var phonefield = phonecontainer.querySelector(".phvCpnum input");
+  for (startInput of phonefield) {
+    console.log(phonefield);
+  }
 }
 
 function newformatPhoneNumber(element) {
