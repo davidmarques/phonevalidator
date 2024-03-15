@@ -380,6 +380,7 @@ function selectOption() {
     country_code = this.querySelector(".country-code").innerText;
   selectedOption(country_code, country_ddi);
   updateOriginalFields("");
+  console.log("Fechando o modal");
   CountryModalHide();
 }
 
