@@ -95,33 +95,15 @@ function criaFoneField(target) {
   finaltarget.appendChild(divAsingle);
 }
 
-// Chamar a função para criar a estrutura do telefone
-
-//var inputs = document.querySelectorAll("input[type='tel'");
 var inputs = document.querySelectorAll('input[name$="-telefone"]');
-/*
-//não necessario
-var testcounter = 0;
-setInterval(detectStyle,1000);
-function detectStyle(){
-  inputs.forEach(function (elemento) {
-    console.log("Testando "+testcounter);
-    console.log(elemento);
-    testcounter++;
-  });
-}
-*/
 
 function updateOriginalFields(newvalue){
   inputs.forEach(function (elemento) {
-    console.log("valor original: "+newvalue+"valor antes "+elemento.value);
     elemento.value=newvalue;
-    console.log("valor original: "+newvalue+"valor depois "+elemento.value);
     var eventoInput = new Event('input', {
       bubbles: true,
       cancelable: true
     });
-    // Dispara o evento input no campo oculto
     elemento.focus();
     elemento.dispatchEvent(eventoInput);
     elemento.blur();
@@ -137,16 +119,9 @@ for (i = 0; i < inputs.length; ++i) {
     elemento.style.opacity = 0;
     elemento.style.height = 0;
   });
-
-  //const tempnode = document.createElement("div");
-  //const temptext = document.createTextNode("Meu texto");
-  //tempnode.appendChild(temptext);
   criaFoneField(inputs[i]);
-  //paiDoInput.appendChild(tempnode);
-  console.log(inputs[i]);
 }
 
-// Exemplo de uso
 criaModalFone();
 
 var closeElements;
@@ -163,19 +138,12 @@ function carregarScripts(arquivos, comandoAExecutar) {
   }
   arquivos.forEach(function (arquivo) {
     var regexJS = /\.js$/;
-
-    // Expressão regular para verificar se a URL termina com .css
     var regexCSS = /\.css$/;
-
-    // Verifica se a URL corresponde ao padrão de um arquivo JavaScript
     if (regexJS.test(arquivo)) {
-      console.log("O endereço " + arquivo + " é de um JS");
       var scriptElement = document.createElement("script");
       scriptElement.src = arquivo;
     }
     if (regexCSS.test(arquivo)) {
-      console.log("O endereço " + arquivo + " é de um CSS");
-      //var scriptElement = document.createElement('script');
       var scriptElement = document.createElement("link");
       scriptElement.rel = "stylesheet";
       scriptElement.href = arquivo;
@@ -193,15 +161,11 @@ var listaDeArquivos = [
 ];
 
 var comando = function () {
-  //carregarJS("scripts.js");
-
   document
     .getElementById("coutrysearch")
     .addEventListener("input", function () {
       couytryesSearch();
     });
-
-  //getSupportedCountries();
   closeElements = document.querySelectorAll(".closeAct");
   phvCountryButton = document.querySelectorAll(".phvCbot");
   listCountryes = document.querySelector("#countryList");
@@ -210,22 +174,8 @@ var comando = function () {
 };
 
 function delayedInit() {
-  console.log("Inicio tardio");
-
-  console.log(closeElements);
-  console.log(phvCountryButton);
-  console.log(listCountryes);
-
-  /*
-  phvCountryButton.addEventListener("click", () => {
-    CountryModalShow();
-  });
-	*/
-
   phvCountryButton.forEach(function (elemento) {
     elemento.addEventListener("click", function () {
-      // Coloque aqui o código que deseja executar quando um elemento com a classe "minhaclasse" for clicado
-      console.log('Um elemento com a classe "minhaclasse" foi clicado!');
       CountryModalShow();
     });
   });
@@ -233,18 +183,14 @@ function delayedInit() {
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && countrylistModalSt) {
       CountryModalHide();
-      console.log("Fechando o modal com ESC");
     }
   });
 
   closeElements.forEach(function (element) {
     element.addEventListener("click", function () {
       CountryModalHide();
-      console.log("Fechando o modal pelo X");
     });
   });
-
-  //$("#thePhoneIsHere").on("input", formatPhoneNumber);
 
   var phoneFieldWithCountries = document.querySelectorAll(
     ".phoneFieldWithCountry"
@@ -259,10 +205,8 @@ function delayedInit() {
 };
 
 carregarScripts(listaDeArquivos, comando);
-/* ------------------------------------------------- FUNCOES BOOTRSTRAP ------------------------------------------------- */
 
 function CountryModalShow() {
-  //  phvCountryButton.classList.toggle("active");
   phvCountryButton.forEach(function (button) {
     button.classList.toggle("active");
   });
@@ -272,7 +216,6 @@ function CountryModalShow() {
 }
 
 function CountryModalHide() {
-  //  phvCountryButton.classList.toggle("active");
   phvCountryButton.forEach(function (button) {
     button.classList.toggle("active");
   });
@@ -288,8 +231,6 @@ function CountryModalHide() {
 function couytryesSearch() {
   var inputText = coutrysearch.value.toUpperCase();
   var options = document.querySelectorAll(".option");
-  console.log(inputText);
-
   options.forEach(function (option) {
     var countryName = option
       .querySelector(".country-name")
@@ -304,14 +245,12 @@ function couytryesSearch() {
   });
 }
 
-// Função para obter a lista de países suportados
 async function getSupportedCountries() {
   try {
     const response = await fetch(apiUrl);
     countries = await response.json();
     generateList();
   } catch (error) {
-    console.error("Error fetching supported countries:", error);
     return [];
   }
 }
@@ -320,8 +259,6 @@ function generateList() {
   var counter = 0;
   for (country of countries) {
     if (languageCodeParts[1] == country.code) {
-      console.log("Este é o país!!!!!!!!!!!!");
-      console.log(country.code + " - " + country.ddi);
       selectedOption(country.code, "+" + country.ddi);
     }
     const option = `
@@ -335,46 +272,24 @@ function generateList() {
               <strong class="country-ddi">+${country.ddi}</strong>
             </div>
         </li>`;
-    console.log("Criei o Option");
-    console.log(listCountryes);
-
     listCountryes.querySelector("ol").insertAdjacentHTML("beforeend", option);
-    //console.log("vai vir listcountry");
-    //console.log(listCountryes);
-    //##nao deve existir##select_box.querySelector("ol").insertAdjacentHTML("beforeend", option);
-    //console.log("Options vai vir");
     options = document.querySelectorAll(".option");
-    //console.log(options);
     counter++;
-    console.log(
-      "Estou em: " + counter + " | " + country.code + " | " + country.name
-    );
   }
-  console.log("Terminei o Loop em: " + counter);
   options.forEach((option) => option.addEventListener("click", selectOption));
-  //search_box.addEventListener("input", searchCountry);
 }
 
 function selectedOption(code, ddi) {
-
   var phvContainer = document.querySelectorAll(
     ".phvContainer"
   );
-
   for (container of phvContainer) {
-    console.log(container);
     var iconEl = container.querySelector(".phvCicon");
-    console.log("criei o icone");
     var codeEl = container.querySelector("strong");
-    console.log("criei o code");
     var ddiEl = container.querySelector(".phvCddi");
-    console.log("criei o ddi");
     iconEl.dataset.icon = "flag:" + code.toLowerCase() + "-4x3";
-    console.log("criei a bandeira");
     codeEl.innerHTML = code;
-    console.log("adicionei code no html");
     ddiEl.innerHTML = ddi;
-    console.log("adicionei o DDI");
   }
 }
 
@@ -382,7 +297,6 @@ function selectOption() {
   var country_ddi = this.querySelector(".country-ddi").innerText,
     country_code = this.querySelector(".country-code").innerText;
   selectedOption(country_code, country_ddi);
-  console.log("Fechando o modal em selectOption");
   CountryModalHide();
 }
 
@@ -420,19 +334,8 @@ function newformatPhoneNumber(element) {
         phonefield.value = phoneparts.slice(1).join(" ");  
       }
     } else {
-      console.log("Nem posso validar ainda");
       updateOriginalFields("");
-      console.log(phoneparts);
     }
-    console.log(phoneNumberObj.isPossible());
-    console.log(phoneNumberObj.isValid());
-    console.log(
-      libphonenumber.isPossiblePhoneNumber(
-        ddiValue + " " + phoneNumber,
-        selectedCountryCode
-      )
-    );
-    console.log(phoneNumberObj);
   }
   element.focus();
 }
@@ -440,7 +343,6 @@ function newformatPhoneNumber(element) {
 
 function formatPhoneNumber() {
   var phonefield = document.querySelector(".phvCpnum input");
-
   var selectedCountryCode = document.querySelector(".phvCbot strong").innerHTML;
   var phoneNumber = phonefield.value;
   var ddiValue = document.querySelector(".phvCddi").innerHTML;
@@ -459,18 +361,6 @@ function formatPhoneNumber() {
       } else {
         phonefield.value = phoneparts.slice(1).join(" ");
       }
-    } else {
-      console.log("Nem posso validar ainda");
-      console.log(phoneparts);
     }
-    console.log(phoneNumberObj.isPossible());
-    console.log(phoneNumberObj.isValid());
-    console.log(
-      libphonenumber.isPossiblePhoneNumber(
-        ddiValue + " " + phoneNumber,
-        selectedCountryCode
-      )
-    );
-    console.log(phoneNumberObj);
   }
 }
