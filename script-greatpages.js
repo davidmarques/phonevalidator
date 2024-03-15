@@ -1,16 +1,78 @@
+// URL da API para obter códigos de países
 const apiUrl =
   "https://davidmarques.github.io/phonevalidator/paises-codes.json";
-const arquivoestilo = "https://davidmarques.github.io/phonevalidator/style-greatpages.css";
-var options = null;
+// URL do arquivo de estilo CSS
+const arquivoestilo =
+  "https://davidmarques.github.io/phonevalidator/style-greatpages.css";
 
+// Array com os URLs dos scripts externos a serem carregados
+var listaDeArquivos = [
+  arquivoestilo,
+  "https://code.iconify.design/3/3.1.0/iconify.min.js",
+  "https://cdn.jsdelivr.net/npm/libphonenumber-js/bundle/libphonenumber-js.min.js",
+  "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
+];
+// Variável para armazenar opções (será inicializada posteriormente)
+var options = null;
+// Variável para controlar o estado do modal de seleção de país
 var countrylistModalSt = false;
+// Variável para armazenar o código de idioma do navegador do usuário
 var languageCode = navigator.language || navigator.userLanguage;
+// Array para armazenar as partes do código de idioma
 var languageCodeParts = languageCode.split("-");
 
+// Array para armazenar os países disponíveis
 var countries = [];
-var options = null;
 
+// Declaração de variáveis para os elementos HTML relacionados ao modal de seleção de país
+var closeElements;
+var phvCountryButton;
+var listCountryes;
+
+
+
+
+// Seleciona todos os elementos de input com nome terminado em "-telefone"
+var inputs = document.querySelectorAll('input[name$="-telefone"]');
+// Loop sobre todos os elementos de input selecionados
+for (i = 0; i < inputs.length; ++i) {
+  // Oculta os elementos HTML relacionados aos campos de input originais
+  var paiDoInput = inputs[i].parentElement;
+  var elementosDoPai = paiDoInput.childNodes;
+  elementosDoPai.forEach(function (elemento) {
+    elemento.style.opacity = 0;
+    elemento.style.height = 0;
+  });
+  // Cria um novo campo de número de telefone em substituição aos campos originais
+  criaFoneField(inputs[i]);
+}
+
+
+// Cria o modal de seleção de país
+criaModalFone();
+
+// Comando a ser executado após o carregamento dos scripts
+var comando = function () {
+  // Adiciona listeners de eventos após a inicialização dos scripts
+  document
+    .getElementById("coutrysearch")
+    .addEventListener("input", function () {
+      couytryesSearch();
+    });
+  closeElements = document.querySelectorAll(".closeAct");
+  phvCountryButton = document.querySelectorAll(".phvCbot");
+  listCountryes = document.querySelector("#countryList");
+  setTimeout(getSupportedCountries, 100);
+  setTimeout(delayedInit, 200);
+};
+
+// Carrega os scripts externos necessários
+carregarScripts(listaDeArquivos, comando);
+
+
+// Função para criar o modal de seleção de país
 function criaModalFone() {
+  // Criação dos elementos HTML necessários para o modal
   var countrySelectOl = document.createElement("ol");
   countrySelectOl.id = "countrySelect";
   var countryListContDiv = document.createElement("div");
@@ -56,7 +118,9 @@ function criaModalFone() {
   document.body.appendChild(modalDiv);
 }
 
+// Função para criar o campo de número de telefone
 function criaFoneField(target) {
+  // Criação dos elementos HTML necessários para o campo de número de telefone
   var finaltarget = target.parentNode;
   var divAsingle = document.createElement("div");
   divAsingle.classList.add("countryPhoneArea");
@@ -89,14 +153,15 @@ function criaFoneField(target) {
   finaltarget.appendChild(divAsingle);
 }
 
-var inputs = document.querySelectorAll('input[name$="-telefone"]');
-
-function updateOriginalFields(newvalue){
+// Função para atualizar os campos de entrada originais com um novo valor
+function updateOriginalFields(newvalue) {
   inputs.forEach(function (elemento) {
-    elemento.value=newvalue;
-    var eventoInput = new Event('input', {
+    // Atualizando o valor do elemento
+    elemento.value = newvalue;
+    // Criando um evento de input
+    var eventoInput = new Event("input", {
       bubbles: true,
-      cancelable: true
+      cancelable: true,
     });
     elemento.focus();
     elemento.dispatchEvent(eventoInput);
@@ -104,24 +169,9 @@ function updateOriginalFields(newvalue){
   });
 }
 
-for (i = 0; i < inputs.length; ++i) {
-  var paiDoInput = inputs[i].parentElement;
-  var elementosDoPai = paiDoInput.childNodes;
-
-  elementosDoPai.forEach(function (elemento) {
-    elemento.style.opacity = 0;
-    elemento.style.height = 0;
-  });
-  criaFoneField(inputs[i]);
-}
-
-criaModalFone();
-
-var closeElements;
-var phvCountryButton;
-var listCountryes;
-
+// Função para carregar scripts externos
 function carregarScripts(arquivos, comandoAExecutar) {
+  // Função interna para verificar o carregamento de cada script
   var scriptsCarregados = 0;
   function scriptCarregado() {
     scriptsCarregados++;
@@ -146,45 +196,30 @@ function carregarScripts(arquivos, comandoAExecutar) {
   });
 }
 
-var listaDeArquivos = [
-  arquivoestilo,
-  "https://code.iconify.design/3/3.1.0/iconify.min.js",
-  "https://cdn.jsdelivr.net/npm/libphonenumber-js/bundle/libphonenumber-js.min.js",
-  "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js",
-];
-
-var comando = function () {
-  document
-    .getElementById("coutrysearch")
-    .addEventListener("input", function () {
-      couytryesSearch();
-    });
-  closeElements = document.querySelectorAll(".closeAct");
-  phvCountryButton = document.querySelectorAll(".phvCbot");
-  listCountryes = document.querySelector("#countryList");
-  setTimeout(getSupportedCountries, 100);
-  setTimeout(delayedInit, 200);
-};
-
+// Função para inicializar as funcionalidades após um atraso
 function delayedInit() {
+  // Adiciona eventos aos botões de seleção de país
   phvCountryButton.forEach(function (elemento) {
     elemento.addEventListener("click", function () {
       CountryModalShow();
     });
   });
 
+  // Adiciona evento de tecla para fechar o modal ao pressionar Esc
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape" && countrylistModalSt) {
       CountryModalHide();
     }
   });
 
+  // Adiciona eventos de clique para fechar o modal
   closeElements.forEach(function (element) {
     element.addEventListener("click", function () {
       CountryModalHide();
     });
   });
 
+  // Adiciona eventos de entrada para os campos de telefone
   var phoneFieldWithCountries = document.querySelectorAll(
     ".phoneFieldWithCountry"
   );
@@ -194,12 +229,12 @@ function delayedInit() {
       newformatPhoneNumber(this);
     });
   });
+}
 
-};
 
-carregarScripts(listaDeArquivos, comando);
-
+// Função para exibir o modal de seleção de país
 function CountryModalShow() {
+  // Exibe o modal e adiciona classes para animação
   phvCountryButton.forEach(function (button) {
     button.classList.toggle("active");
   });
@@ -208,7 +243,9 @@ function CountryModalShow() {
   countrylistModalSt = true;
 }
 
+// Função para esconder o modal de seleção de país
 function CountryModalHide() {
+  // Esconde o modal e realiza a limpeza de campos e atualizações necessárias
   phvCountryButton.forEach(function (button) {
     button.classList.toggle("active");
   });
@@ -221,7 +258,9 @@ function CountryModalHide() {
   countrylistModalSt = false;
 }
 
+// Função para filtrar países com base no texto de busca
 function couytryesSearch() {
+  // Filtra países com base no texto de busca inserido pelo usuário
   var inputText = coutrysearch.value.toUpperCase();
   var options = document.querySelectorAll(".option");
   options.forEach(function (option) {
@@ -238,7 +277,11 @@ function couytryesSearch() {
   });
 }
 
+// Função assíncrona para obter a lista de países suportados
 async function getSupportedCountries() {
+  // Faz uma requisição para obter a lista de países
+  // Armazena a lista de países no array 'countries'
+  // Chama a função 'generateList' para gerar a lista de países na interface
   try {
     const response = await fetch(apiUrl);
     countries = await response.json();
@@ -248,7 +291,11 @@ async function getSupportedCountries() {
   }
 }
 
+// Função para gerar a lista de países na interface
 function generateList() {
+  // Loop sobre todos os países disponíveis
+  // Gera a marcação HTML para cada país e adiciona à lista de países na interface
+  // Adiciona listeners de eventos para cada opção de país na lista
   var counter = 0;
   for (country of countries) {
     if (languageCodeParts[1] == country.code) {
@@ -259,7 +306,9 @@ function generateList() {
             <div class="Myoption">
               <div>
                   <span class="iconify" data-icon="flag:${country.code.toLowerCase()}-4x3"></span>
-                  <span class="country-name">${country.code} | ${country.name}</span>
+                  <span class="country-name">${country.code} | ${
+      country.name
+    }</span>
                   <strong class="hided country-code">${country.code}</strong>
               </div>
               <strong class="country-ddi">+${country.ddi}</strong>
@@ -272,10 +321,10 @@ function generateList() {
   options.forEach((option) => option.addEventListener("click", selectOption));
 }
 
+// Função para atualizar a aparência do país selecionado na interface
 function selectedOption(code, ddi) {
-  var phvContainer = document.querySelectorAll(
-    ".phvContainer"
-  );
+  // Atualiza a aparência do país selecionado na interface
+  var phvContainer = document.querySelectorAll(".phvContainer");
   for (container of phvContainer) {
     var iconEl = container.querySelector(".phvCicon");
     var codeEl = container.querySelector("strong");
@@ -286,21 +335,31 @@ function selectedOption(code, ddi) {
   }
 }
 
+// Função para lidar com a seleção de um país na lista
 function selectOption() {
+  // Obtém o código do país e o DDI do país selecionado
+  // Atualiza a aparência do país selecionado na interface
+  // Esconde o modal de seleção de país
   var country_ddi = this.querySelector(".country-ddi").innerText,
     country_code = this.querySelector(".country-code").innerText;
   selectedOption(country_code, country_ddi);
   CountryModalHide();
 }
 
-function cleanInput(){
+// Função para limpar o campo de número de telefone
+function cleanInput() {
+  // Limpa o campo de número de telefone
   var phonefield = document.querySelectorAll(".phvCpnum input");
   for (startInput of phonefield) {
-    startInput.value="";
+    startInput.value = "";
   }
 }
 
+// Função para formatar o número de telefone conforme o país selecionado
 function newformatPhoneNumber(element) {
+  // Obtém o valor do campo de número de telefone e o código do país selecionado
+  // Formata o número de telefone de acordo com as regras do país selecionado
+  // Atualiza os campos de input originais com o novo número formatado
   var phonecontainer = element.closest(".phvContainer");
   var phonefield = phonecontainer.querySelector(".phvCpnum input");
   var selectedCountryCode =
@@ -324,7 +383,7 @@ function newformatPhoneNumber(element) {
         updateOriginalFields(phoneparts.slice(1).join(" "));
       } else {
         updateOriginalFields("");
-        phonefield.value = phoneparts.slice(1).join(" ");  
+        phonefield.value = phoneparts.slice(1).join(" ");
       }
     } else {
       updateOriginalFields("");
