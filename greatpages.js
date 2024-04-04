@@ -322,6 +322,7 @@ function newformatPhoneNumber(element) {
     if (phoneparts.length > 1) {
       if (phoneparts.length > 2) {
         phonefield.value = phoneparts.slice(1).join(" ");
+        console.log(phonefield.value = phoneparts.slice(1).join(" ")+" | "+phonefield.value = phoneparts.slice(0).join(" "));
         updateOriginalFields(phoneparts.slice(1).join(" "));
       } else {
         updateOriginalFields("");
