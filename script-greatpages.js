@@ -377,8 +377,7 @@ function newformatPhoneNumber(element) {
     if (phoneparts.length > 1) {
       if (phoneparts.length > 2) {
         phonefield.value = phoneparts.slice(1).join(" ");
-        //updateOriginalFields(phoneparts.slice(1).join(" "));
-        updateOriginalFields(phoneparts.slice(0).join(" "));
+        updateOriginalFields(phoneparts.slice(0).join(""));
       } else {
         updateOriginalFields("");
         phonefield.value = phoneparts.slice(1).join(" ");
