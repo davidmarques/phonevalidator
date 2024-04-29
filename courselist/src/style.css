@@ -1,3 +1,6 @@
+* { font-family: "Montserrat", sans-serif;
+}
+
 :root {
     --factor: 1;
 }
@@ -68,19 +71,19 @@
 }
 
 input:checked+.selectSlider {
-    background-color: #2196F3;
+    background-color: #1e88e5;
 }
 
 input:focus+.selectSlider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px  #1e88e5;
 }
 
 .selectFilled input:checked+.selectSlider {
-    background-color: #148530;
+    background-color: #1e88e5;
 }
 
 .selectFilled input:focus+.selectSlider {
-    box-shadow: 0 0 1px #148530;
+    box-shadow: 0 0 1px #1e88e5;
 }
 
 input:checked+.selectSlider:before {
@@ -144,12 +147,15 @@ padding-bottom: 1rem;*/
     justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
+    font-size: larger;
+    padding-bottom: 50px;
 }
 
 .courseSelectArea {
     position: absolute;
     width: 100%;
     background-color: #dedada;
+    border-radius: 20px;
     max-width: 500px;
     height: 100%;
     box-sizing: border-box;
@@ -170,6 +176,7 @@ padding-bottom: 1rem;*/
     display: flex;
     position: absolute;
     background-color: #ff000088;
+    border-radius: 20px;
     padding: 15px;
     right: 0;
     top: 0;
@@ -208,12 +215,17 @@ padding-bottom: 1rem;*/
     background-color: #818181;
     color: #000000;
     padding: 20px;
+    border-radius: 10px;
     font-weight: bolder;
-    cursor: not-allowed;
 }
 
-.selectListOkBtnGreen {
-    background-color: #148530;
+.selectListOkBtnBlue {
+    background-color: #1e88e5;
+    color: #FFFFFF;
+}
+
+.selectListOkBtnBlue:hover {
+    background-color: #1565c0;
     color: #FFFFFF;
     cursor: pointer;
 }
@@ -230,7 +242,7 @@ padding-bottom: 1rem;*/
 }
 
 .botaocurso-check {
-    background-color: #148530;
+    background-color: #1e88e5;
     color: #ffffff;
 }
 

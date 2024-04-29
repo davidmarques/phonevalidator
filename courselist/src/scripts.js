@@ -146,7 +146,7 @@ function generateSelectList(thelist, theTarget) {
         .closest(".courseSelectCtn")
         .querySelector(".selectListOkBtn");
       if (result != false) {
-        botaoAddress.classList.add("selectListOkBtnGreen");
+        botaoAddress.classList.add("selectListOkBtnBlue");
         botaoAddress.addEventListener("click", selCourseCloseAct);
         console.log(elemento.parentNode);
         elemento.parentNode
@@ -161,7 +161,7 @@ function generateSelectList(thelist, theTarget) {
           targetFields[i].value = result;
         }
       } else {
-        botaoAddress.classList.remove("selectListOkBtnGreen");
+        botaoAddress.classList.remove("selectListOkBtnBlue");
         botaoAddress.removeEventListener("click", selCourseCloseAct);
         elemento.parentNode
           .closest("#selectTarget")
