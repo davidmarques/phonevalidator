@@ -51,7 +51,7 @@ function generateCourseSelector() {
                 <div class="selectListArea">
                     <div id="selectTarget" class="courseSelect"></div>
                 </div>
-                <div class="selectListOk"><div class="selectListOkBtn">Ok</div></div>
+                <div class="selectListOk"><div class="selectListOkBtn">Enviar</div></div>
             </div>
             <div class="courseSelectBg" onclick="selCourseCloseAct()"></div>
         </div>
